@@ -24,32 +24,26 @@ function Example() {
         </div>
       </div>
       <div style={{ marginTop: 15 }}>
-        <SubTitle>With Read Only Text.</SubTitle>
-        <div className="level">
-          <div className="level-item">
-            <div>
-              <p className="heading">Repo: (Dont forget to fork or star it)</p>
-              <p className="title">
-                <a className="button is-text" href={website}>
-                  Click here or copy the repo link.
-                </a>
-              </p>
-            </div>
-          </div>
-          <div className="level-item">
-            <CopyToClipboard value={website}>Copy Link!</CopyToClipboard>
-          </div>
-        </div>
-      </div>
-      <div style={{ marginTop: 15, marginBottom: 15 }}>
         <div className="field">
-          <Label>Input results here</Label>
+          <Label>Try to paste</Label>
           <Textarea
             onFocus={e => e.target.select()}
             className="textarea"
             onChange={e => setValueResult(e.target.value)}
             value={valueResult}
           />
+        </div>
+      </div>
+      <div style={{ marginTop: 15, marginBottom: 15 }}>
+        <div className="content">
+          <h6>REPO: (DONT FORGET TO FORK OR STAR IT)</h6>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <a className="button is-text" href={website}>
+              Click here
+            </a>
+            <span style={{ marginRight: 15 }}>OR</span>
+            <CopyToClipboard value={website}>Copy Link!</CopyToClipboard>
+          </div>
         </div>
       </div>
     </Container>
