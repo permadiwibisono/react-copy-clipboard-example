@@ -30,17 +30,22 @@ const CopyToClipboard = props => {
         className="button"
         onClick={() => {
           if (props.value !== "") {
+            let textArea = null;
             if (navigator.userAgent.match(/ipad|iphone/i)) {
+              textArea = document.createElement("textArea");
+              textArea.value = props.value;
+              document.body.appendChild(textArea);
               const range = document.createRange();
-              range.selectNodeContents(inputRef.current);
+              range.selectNodeContents(textArea);
               const selection = window.getSelection();
               selection.removeAllRanges();
               selection.addRange(range);
-              inputRef.current.setSelectionRange(0, props.value.length);
+              textArea.setSelectionRange(0, props.value.length);
             } else {
               inputRef.current.select();
             }
             document.execCommand("copy");
+            if (textArea) document.removeChild(textArea);
             setMsgToast(SUCCESS_COPIED_MSG);
             toggleToast(true);
           } else {
