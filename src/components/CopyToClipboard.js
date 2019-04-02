@@ -32,14 +32,11 @@ const CopyToClipboard = props => {
           if (props.value !== "") {
             if (navigator.userAgent.match(/ipad|iphone/i)) {
               const range = document.createRange();
-              console.log(range);
               range.selectNodeContents(inputRef.current);
-              console.log(range);
               const selection = window.getSelection();
               selection.removeAllRanges();
               selection.addRange(range);
-              console.log(selection);
-              inputRef.current.setSelectionRange(0, 999999);
+              inputRef.current.setSelectionRange(0, props.value.length);
             } else {
               inputRef.current.select();
             }
