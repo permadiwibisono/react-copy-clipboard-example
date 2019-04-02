@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Container from "./Container";
-import SubTitle from "./Typos/SubTitle";
 import Input from "./Form/Input";
 import Label from "./Form/Label";
 import Textarea from "./Form/Textarea";
