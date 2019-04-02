@@ -20,25 +20,31 @@ const CopyToClipboard = props => {
   return (
     <div className="field">
       <textarea
-        onFocus={e => e.preventDefault()}
-        onClick={e => e.preventDefault()}
-        onTouchStart={e => e.preventDefault()}
+        // onFocus={e => e.preventDefault()}
+        // onClick={e => e.preventDefault()}
+        // onTouchStart={e => e.preventDefault()}
         style={{ position: "absolute", left: "-9999999px" }}
-        // readOnly
+        readOnly
         ref={inputRef}
         value={props.value}
       />
       <button
         className="button"
-        onClick={() => {
+        onClick={async () => {
           if (props.value !== "") {
             if (navigator.userAgent.match(/ipad|iphone/i)) {
+              await setMsgToast("Your devices maybe not supported.");
+              await toggleToast(true);
+
               const range = document.createRange();
+              const oldReadOnly = inputRef.current.readOnly;
+              inputRef.current.readOnly = false;
               range.selectNodeContents(inputRef.current);
               const selection = window.getSelection();
               selection.removeAllRanges();
               selection.addRange(range);
               inputRef.current.setSelectionRange(0, props.value.length);
+              inputRef.current.readOnly = oldReadOnly;
             } else {
               inputRef.current.select();
             }
