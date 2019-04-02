@@ -43,5 +43,5 @@ Input.propTypes = {
   isLoading: propTypes.bool,
   rounded: propTypes.bool,
   size: propTypes.string,
-  onChange: propTypes.string
+  onChange: propTypes.func
 };
