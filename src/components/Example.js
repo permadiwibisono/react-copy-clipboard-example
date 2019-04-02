@@ -35,13 +35,13 @@ function Example() {
       </div>
       <div style={{ marginTop: 15, marginBottom: 15 }}>
         <div className="content">
-          <h6>REPO: (DONT FORGET TO FORK OR STAR IT)</h6>
+          <h6>REPO:</h6>
           <div style={{ display: "flex", alignItems: "center" }}>
             <a className="button is-text" href={website}>
               Click here
             </a>
             <span style={{ marginRight: 15 }}>OR</span>
-            <CopyToClipboard value={website}>Copy Link!</CopyToClipboard>
+            <CopyToClipboard value={website}>Copy link</CopyToClipboard>
           </div>
         </div>
       </div>
