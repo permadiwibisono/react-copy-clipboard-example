@@ -20,7 +20,9 @@ const CopyToClipboard = props => {
   return (
     <div className="field">
       <textarea
-        onFocus={e => alert("masuk")}
+        onFocus={e => e.preventDefault()}
+        onClick={e => e.preventDefault()}
+        onTouchStart={e => e.preventDefault()}
         style={{ position: "absolute", left: "-9999999px" }}
         // readOnly
         ref={inputRef}
