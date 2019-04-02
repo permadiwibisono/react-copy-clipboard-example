@@ -1,14 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-import "./styles.css";
+import Title from "./components/Typos/Title";
+import SubTitle from "./components/Typos/SubTitle";
+import Section from "./components/Section";
+import Container from "./components/Container";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+    <Section>
+      <Container>
+        <Title>Copy to Clipboard</Title>
+        <SubTitle>
+          This is how to copy to clipboard using button in reactjs.
+        </SubTitle>
+      </Container>
+    </Section>
   );
 }
 
